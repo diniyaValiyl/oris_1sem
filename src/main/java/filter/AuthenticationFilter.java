@@ -15,7 +15,8 @@ public class AuthenticationFilter implements Filter {
             throws IOException, ServletException {
         HttpServletRequest httpRequest = (HttpServletRequest) request;
         HttpServletResponse httpResponse = (HttpServletResponse) response;
-        String path = httpRequest.getRequestURI().substring(httpRequest.getContextPath().length());
+
+        String path = ((HttpServletRequest) request).getServletPath();
 
         // Публичные ресурсы
         if (path.startsWith("/css/") || path.startsWith("/js/") || path.startsWith("/images/") ||

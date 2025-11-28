@@ -20,7 +20,7 @@ public class MainServlet extends HttpServlet {
             List<Review> reviews = reviewService.getAllReviews();
             request.setAttribute("reviews", reviews);
 
-            request.getRequestDispatcher("/jsp/index.jsp").forward(request, response);
+            request.getRequestDispatcher("/WEB-INF/views/index.jsp").forward(request, response);
         } catch (Exception e) {
             throw new ServletException(e);
         }

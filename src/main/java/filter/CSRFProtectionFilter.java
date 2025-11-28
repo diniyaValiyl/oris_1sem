@@ -8,7 +8,7 @@ import jakarta.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.UUID;
 
-@WebFilter("/*")
+//@WebFilter("/*")
 public class CSRFProtectionFilter implements Filter {
 
     @Override
@@ -18,6 +18,8 @@ public class CSRFProtectionFilter implements Filter {
         HttpServletResponse httpResponse = (HttpServletResponse) response;
 
         HttpSession session = httpRequest.getSession();
+
+
 
         // Генерация CSRF токена если его нет
         if (session.getAttribute("csrfToken") == null) {
