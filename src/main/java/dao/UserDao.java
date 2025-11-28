@@ -1,4 +1,3 @@
-// UserDao.java
 package dao;
 
 import model.User;
@@ -8,5 +7,4 @@ public interface UserDao {
     void createUser(User user) throws SQLException;
     User findUserByUsername(String username) throws SQLException;
     User findUserById(Long id) throws SQLException;
-    User findUserByEmail(String email) throws SQLException;
 }

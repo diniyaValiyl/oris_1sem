@@ -1,6 +1,5 @@
 package config;
 
-import jakarta.servlet.ServletContext;
 import jakarta.servlet.ServletContextEvent;
 import jakarta.servlet.ServletContextListener;
 import jakarta.servlet.annotation.WebListener;
@@ -12,8 +11,6 @@ public class ApplicationListener implements ServletContextListener {
 
     @Override
     public void contextInitialized(ServletContextEvent sce) {
-        ServletContext context = sce.getServletContext();
-
         // Инициализация DAO
         UserDao userDao = new UserDaoImpl();
         DoctorDao doctorDao = new DoctorDaoImpl();
@@ -27,9 +24,13 @@ public class ApplicationListener implements ServletContextListener {
         AppointmentService appointmentService = new AppointmentServiceImpl(appointmentDao);
 
         // Установка в контекст
-        context.setAttribute("userService", userService);
-        context.setAttribute("doctorService", doctorService);
-        context.setAttribute("reviewService", reviewService);
-        context.setAttribute("appointmentService", appointmentService);
+        sce.getServletContext().setAttribute("userService", userService);
+        sce.getServletContext().setAttribute("doctorService", doctorService);
+        sce.getServletContext().setAttribute("reviewService", reviewService);
+        sce.getServletContext().setAttribute("appointmentService", appointmentService);
+        sce.getServletContext().setAttribute("userDao", userDao);
     }
+
+    @Override
+    public void contextDestroyed(ServletContextEvent sce) {}
 }
