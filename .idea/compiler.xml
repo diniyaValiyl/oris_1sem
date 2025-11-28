@@ -8,6 +8,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="oris_404" />
+        <module name="dental-clinic" />
       </profile>
     </annotationProcessing>
   </component>

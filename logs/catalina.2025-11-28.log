@@ -876,3 +876,42 @@
 28-Nov-2025 14:49:28.982 INFO [Thread-1] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["http-nio-6969"]
 28-Nov-2025 14:49:29.584 WARNING [Thread-1] org.apache.tomcat.util.net.Acceptor.stopMillis The acceptor thread [http-nio-6969-Acceptor] did not stop cleanly
 28-Nov-2025 14:49:29.587 INFO [Thread-1] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["http-nio-6969"]
+28-Nov-2025 14:55:56.684 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Имя версии сервера:    Apache Tomcat/11.0.13
+28-Nov-2025 14:55:56.691 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Сервер собран:         Oct 10 2025 13:57:31 UTC
+28-Nov-2025 14:55:56.691 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Номер версии сервера:  11.0.13.0
+28-Nov-2025 14:55:56.691 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Linux
+28-Nov-2025 14:55:56.692 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Версия ОС:             6.14.0-35-generic
+28-Nov-2025 14:55:56.692 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Архитектура:           amd64
+28-Nov-2025 14:55:56.692 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             /usr/lib/jvm/java-21-openjdk-amd64
+28-Nov-2025 14:55:56.692 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Версия JVM:            21.0.8+9-Ubuntu-0ubuntu124.04.1
+28-Nov-2025 14:55:56.692 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Производитель JVM:     Ubuntu
+28-Nov-2025 14:55:56.692 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         /home/palmadae/IdeaProjects/oris_1sem
+28-Nov-2025 14:55:56.693 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         /home/palmadae/Downloads/apache-tomcat-11.0.13
+28-Nov-2025 14:55:56.701 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.lang=ALL-UNNAMED
+28-Nov-2025 14:55:56.702 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.io=ALL-UNNAMED
+28-Nov-2025 14:55:56.702 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util=ALL-UNNAMED
+28-Nov-2025 14:55:56.702 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util.concurrent=ALL-UNNAMED
+28-Nov-2025 14:55:56.702 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED
+28-Nov-2025 14:55:56.702 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=/home/palmadae/Downloads/apache-tomcat-11.0.13
+28-Nov-2025 14:55:56.702 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=/home/palmadae/IdeaProjects/oris_1sem
+28-Nov-2025 14:55:56.703 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=/home/palmadae/IdeaProjects/oris_1sem/temp
+28-Nov-2025 14:55:56.703 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=/home/palmadae/IdeaProjects/oris_1sem/conf/logging.properties
+28-Nov-2025 14:55:56.703 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+28-Nov-2025 14:55:56.703 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -javaagent:/home/palmadae/idea-IU-251.25410.129/lib/idea_rt.jar=39029
+28-Nov-2025 14:55:56.703 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dfile.encoding=UTF-8
+28-Nov-2025 14:55:56.703 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dsun.stdout.encoding=UTF-8
+28-Nov-2025 14:55:56.703 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dsun.stderr.encoding=UTF-8
+28-Nov-2025 14:55:56.706 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent The Apache Tomcat Native library which allows using OpenSSL was not found on the java.library.path: [/usr/java/packages/lib:/usr/lib/x86_64-linux-gnu/jni:/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:/usr/lib/jni:/lib:/usr/lib]
+28-Nov-2025 14:55:56.998 INFO [main] org.apache.coyote.AbstractProtocol.init Инициализация ProtocolHandler ["http-nio-8080"]
+28-Nov-2025 14:55:57.018 INFO [main] org.apache.catalina.startup.Catalina.load Server initialization in [533] milliseconds
+28-Nov-2025 14:55:57.065 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+28-Nov-2025 14:55:57.066 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet engine: [Apache Tomcat/11.0.13]
+28-Nov-2025 14:55:57.076 INFO [main] org.apache.catalina.startup.HostConfig.deployDescriptor Deploying deployment descriptor [/home/palmadae/IdeaProjects/oris_1sem/conf/Catalina/localhost/dental-clinic.xml]
+28-Nov-2025 14:55:57.581 INFO [main] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+28-Nov-2025 14:55:57.616 INFO [main] org.apache.catalina.startup.HostConfig.deployDescriptor Deployment of deployment descriptor [/home/palmadae/IdeaProjects/oris_1sem/conf/Catalina/localhost/dental-clinic.xml] has finished in [536] ms
+28-Nov-2025 14:55:57.620 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
+28-Nov-2025 14:55:57.629 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in [609] milliseconds
+28-Nov-2025 14:56:08.523 INFO [Thread-1] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["http-nio-8080"]
+28-Nov-2025 14:56:08.526 INFO [Thread-1] org.apache.catalina.core.StandardService.stopInternal Stopping service [Catalina]
+28-Nov-2025 14:56:08.537 INFO [Thread-1] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["http-nio-8080"]
+28-Nov-2025 14:56:08.551 INFO [Thread-1] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["http-nio-8080"]
