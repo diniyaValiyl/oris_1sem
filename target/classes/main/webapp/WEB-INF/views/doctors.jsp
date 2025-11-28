@@ -25,7 +25,7 @@
                             <p class="experience">Опыт работы: ${doctor.experience} лет</p>
                             <p class="description">${doctor.description}</p>
                             <div class="doctor-actions">
-                                <a href="${pageContext.request.contextPath}/doctor/${doctor.id}" class="btn-primary">Подробнее</a>
+                                <a href="${pageContext.request.contextPath}/doctor-detail?id=${doctor.id}" class="btn-primary">Подробнее</a>
                                 <a href="${pageContext.request.contextPath}/schedule/${doctor.id}" class="btn-secondary">Расписание</a>
                             </div>
                         </div>

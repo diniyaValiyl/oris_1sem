@@ -1,4 +1,3 @@
-// DoctorDetailServlet.java
 package servlet;
 
 import jakarta.servlet.ServletException;
@@ -10,32 +9,32 @@ import model.Doctor;
 import service.DoctorService;
 import java.io.IOException;
 
-@WebServlet("/doctor/*")
+@WebServlet("/doctor-detail")
 public class DoctorDetailServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String pathInfo = request.getPathInfo();
-        if (pathInfo == null || pathInfo.equals("/")) {
-            response.sendRedirect("/doctors");
+        String doctorIdStr = request.getParameter("id");
+
+        if (doctorIdStr == null) {
+            response.sendRedirect("doctors");
             return;
         }
 
-        String doctorIdStr = pathInfo.substring(1);
         try {
             Long doctorId = Long.parseLong(doctorIdStr);
             DoctorService doctorService = (DoctorService) getServletContext().getAttribute("doctorService");
             Doctor doctor = doctorService.getDoctorById(doctorId);
 
             if (doctor == null) {
-                response.sendRedirect("/doctors");
+                response.sendRedirect("doctors");
                 return;
             }
 
             request.setAttribute("doctor", doctor);
             request.getRequestDispatcher("/WEB-INF/views/doctor-detail.jsp").forward(request, response);
         } catch (Exception e) {
-            response.sendRedirect("/doctors");
+            response.sendRedirect("doctors");
         }
     }
 }

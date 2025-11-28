@@ -28,6 +28,7 @@
                         <div class="user-actions">
                             <a href="${pageContext.request.contextPath}/account" class="btn-secondary">Личный кабинет</a>
                             <form action="${pageContext.request.contextPath}/logout" method="post" style="display: inline;">
+                                <input type="hidden" name="csrfToken" value="${sessionScope.csrfToken}">
                                 <button type="submit" class="btn-outline">Выйти</button>
                             </form>
                         </div>

@@ -32,7 +32,7 @@ public class AuthProcessServlet extends HttpServlet {
                     response.sendRedirect("auth?error=invalid");
                 }
             } else if ("register".equals(action)) {
-                // Простая регистрация
+                // Регистрация
                 userService.registerUser(
                         username,
                         password,
@@ -43,7 +43,16 @@ public class AuthProcessServlet extends HttpServlet {
                         Integer.parseInt(request.getParameter("birthYear")),
                         request.getParameter("address")
                 );
-                response.sendRedirect("auth?success=registered");
+
+                // После регистрации автоматически входим
+                User user = userService.authenticateUser(username, password);
+                if (user != null) {
+                    HttpSession session = request.getSession();
+                    session.setAttribute("user", user);
+                    response.sendRedirect("account?success=registered");
+                } else {
+                    response.sendRedirect("auth?success=registered");
+                }
             }
         } catch (Exception e) {
             response.sendRedirect("auth?error=" + e.getMessage());

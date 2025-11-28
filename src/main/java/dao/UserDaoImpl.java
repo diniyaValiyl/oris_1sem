@@ -12,6 +12,7 @@ public class UserDaoImpl implements UserDao {
 
         try (Connection connection = DatabaseConfig.getConnection();
              PreparedStatement statement = connection.prepareStatement(sql)) {
+
             statement.setString(1, user.getUsername());
             statement.setString(2, user.getPassword());
             statement.setString(3, user.getFullName());
@@ -23,6 +24,10 @@ public class UserDaoImpl implements UserDao {
             statement.setString(9, user.getRole());
 
             statement.executeUpdate();
+
+        } catch (SQLException e) {
+            System.out.println("Ошибка при создании пользователя: " + e.getMessage());
+            throw e;
         }
     }
 
@@ -61,6 +66,38 @@ public class UserDaoImpl implements UserDao {
         try (Connection connection = DatabaseConfig.getConnection();
              PreparedStatement statement = connection.prepareStatement(sql)) {
             statement.setLong(1, id);
+
+            try (ResultSet resultSet = statement.executeQuery()) {
+                if (resultSet.next()) {
+                    return User.builder()
+                            .id(resultSet.getLong("id"))
+                            .username(resultSet.getString("username"))
+                            .password(resultSet.getString("password_hash"))
+                            .fullName(resultSet.getString("full_name"))
+                            .email(resultSet.getString("email"))
+                            .phone(resultSet.getString("phone"))
+                            .gender(resultSet.getString("gender"))
+                            .birthYear(resultSet.getInt("birth_year"))
+                            .address(resultSet.getString("address"))
+                            .role(resultSet.getString("role"))
+                            .build();
+                }
+            }
+        }
+        return null;
+    }
+
+    @Override
+    public User findUserByEmail(String email) throws SQLException {
+        if (email == null || email.trim().isEmpty()) {
+            return null;
+        }
+
+        String sql = "SELECT * FROM users WHERE email = ?";
+
+        try (Connection connection = DatabaseConfig.getConnection();
+             PreparedStatement statement = connection.prepareStatement(sql)) {
+            statement.setString(1, email.trim().toLowerCase());
 
             try (ResultSet resultSet = statement.executeQuery()) {
                 if (resultSet.next()) {

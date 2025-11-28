@@ -15,28 +15,35 @@ public class UserServiceImpl implements UserService {
     @Override
     public void registerUser(String username, String password, String fullName, String email,
                              String phone, String gender, Integer birthYear, String address) throws Exception {
-        // Простая валидация
+
+        // Проверка логина
         if (username == null || username.trim().length() < 3) {
             throw new Exception("Логин должен содержать минимум 3 символа");
         }
 
+        // Проверка пароля
         if (password == null || password.length() < 6) {
             throw new Exception("Пароль должен содержать минимум 6 символов");
         }
 
-        if (userDao.findUserByUsername(username) != null) {
+        // Проверка существующего пользователя
+        User existingUser = userDao.findUserByUsername(username);
+        if (existingUser != null) {
             throw new Exception("Пользователь с таким именем уже существует");
         }
 
         // Проверка email
         if (email != null && !email.isEmpty()) {
-            User existingUser = findUserByEmail(email);
-            if (existingUser != null) {
+            User existingEmailUser = userDao.findUserByEmail(email);
+            if (existingEmailUser != null) {
                 throw new Exception("Пользователь с таким email уже существует");
             }
         }
 
+        // Хэширование пароля
         String hashedPassword = HashUtil.hashPassword(password);
+
+        // Создание пользователя
         User user = User.builder()
                 .username(username)
                 .password(hashedPassword)
@@ -49,6 +56,7 @@ public class UserServiceImpl implements UserService {
                 .role("PATIENT")
                 .build();
 
+        // Сохранение в базу
         userDao.createUser(user);
     }
 
@@ -64,12 +72,5 @@ public class UserServiceImpl implements UserService {
     @Override
     public User getUserById(Long id) throws SQLException {
         return userDao.findUserById(id);
-    }
-
-    // Простой метод для проверки email
-    private User findUserByEmail(String email) throws SQLException {
-        // В реальном приложении нужно добавить метод в DAO
-        // Пока возвращаем null для простоты
-        return null;
     }
 }

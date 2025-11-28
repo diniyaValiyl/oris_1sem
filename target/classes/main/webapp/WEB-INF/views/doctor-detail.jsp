@@ -14,7 +14,6 @@
 
     <main>
         <section class="section">
-            <!-- Простая навигация -->
             <div class="simple-nav">
                 <a href="${pageContext.request.contextPath}/doctors" class="btn-outline">← Назад к врачам</a>
             </div>
@@ -30,7 +29,6 @@
                     <p class="specialization">${doctor.specialization}</p>
                     <p class="experience">Опыт работы: ${doctor.experience} лет</p>
 
-                    <!-- Основные действия -->
                     <div class="doctor-actions" style="margin: 1.5rem 0;">
                         <a href="${pageContext.request.contextPath}/schedule/${doctor.id}" class="btn-primary">
                             Посмотреть расписание
@@ -50,7 +48,6 @@
                         <p>${doctor.education}</p>
                     </div>
 
-                    <!-- Форма быстрой записи -->
                     <c:if test="${not empty sessionScope.user}">
                         <div class="appointment-form" style="background: var(--surface); padding: 1.5rem; border-radius: 10px; margin: 2rem 0;">
                             <h3>Запись на прием</h3>
@@ -59,8 +56,9 @@
                                 <div class="alert alert-error">
                                     <c:choose>
                                         <c:when test="${param.error == 'invalid_date'}">Нельзя записаться на прошедшую дату</c:when>
+                                        <c:when test="${param.error == 'invalid_time'}">Нельзя записаться на прошедшее время</c:when>
                                         <c:when test="${param.error == 'invalid_date_format'}">Неверный формат даты</c:when>
-                                        <c:otherwise>${param.error}</c:otherwise>
+                                        <c:otherwise>Ошибка: ${param.error}</c:otherwise>
                                     </c:choose>
                                 </div>
                             </c:if>
@@ -113,7 +111,6 @@
                 </div>
             </div>
 
-            <!-- Простые ссылки для навигации -->
             <div class="simple-links">
                 <a href="${pageContext.request.contextPath}/doctors">← Все врачи</a>
                 <a href="${pageContext.request.contextPath}/schedule/${doctor.id}">Расписание врача →</a>
@@ -125,7 +122,6 @@
 
     <script src="${pageContext.request.contextPath}/js/theme.js"></script>
     <script>
-        // Установка минимальной даты (завтра)
         document.addEventListener('DOMContentLoaded', function() {
             const dateInput = document.getElementById('date');
             if (dateInput) {
