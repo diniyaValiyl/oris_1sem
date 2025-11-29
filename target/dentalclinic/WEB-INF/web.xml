@@ -5,8 +5,11 @@
                              http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
 
+    <display-name>Dental Clinic</display-name>
+
     <welcome-file-list>
         <welcome-file>index</welcome-file>
+        <welcome-file>index.html</welcome-file>
     </welcome-file-list>
 
 </web-app>

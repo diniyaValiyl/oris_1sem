@@ -20,8 +20,9 @@
                 <c:if test="${not empty param.error}">
                     <div class="alert alert-error">
                         <c:choose>
-                            <c:when test="${param.error == 'invalid_credentials'}">Неверный логин или пароль</c:when>
-                            <c:otherwise>Ошибка авторизации</c:otherwise>
+                            <c:when test="${param.error == 'invalid'}">Неверный логин или пароль</c:when>
+                            <c:when test="${param.error == 'system_error'}">Системная ошибка. Попробуйте позже.</c:when>
+                            <c:otherwise>Ошибка авторизации: ${param.error}</c:otherwise>
                         </c:choose>
                     </div>
                 </c:if>
@@ -29,19 +30,16 @@
                 <c:if test="${not empty param.success}">
                     <div class="alert alert-success">
                         <c:choose>
-                            <c:when test="${param.success == 'registered_please_login'}">Регистрация успешна! Теперь войдите в систему.</c:when>
+                            <c:when test="${param.success == 'registered'}">Регистрация успешно завершена! Теперь вы можете войти.</c:when>
                         </c:choose>
                     </div>
                 </c:if>
 
                 <form action="${pageContext.request.contextPath}/auth/process" method="post" class="auth-form">
-                    <input type="hidden" name="action" value="login">
-                    <input type="hidden" name="csrfToken" value="${sessionScope.csrfToken}">
-
                     <div class="form-group">
                         <label for="username">Логин:</label>
                         <input type="text" id="username" name="username" required
-                               placeholder="Введите ваш логин">
+                               placeholder="Введите ваш логин" value="${param.username}">
                     </div>
 
                     <div class="form-group">

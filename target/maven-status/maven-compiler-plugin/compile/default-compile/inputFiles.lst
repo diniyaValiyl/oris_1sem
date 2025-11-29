@@ -2,6 +2,7 @@ C:\Users\rajha\OpenideProjects\40\oris_1sem\src\main\java\service\DoctorServiceI
 C:\Users\rajha\OpenideProjects\40\oris_1sem\src\main\java\servlet\ScheduleServlet.java
 C:\Users\rajha\OpenideProjects\40\oris_1sem\src\main\java\dao\UserDaoImpl.java
 C:\Users\rajha\OpenideProjects\40\oris_1sem\src\main\java\service\ReviewService.java
+C:\Users\rajha\OpenideProjects\40\oris_1sem\src\main\java\servlet\RegisterServlet.java
 C:\Users\rajha\OpenideProjects\40\oris_1sem\src\main\java\config\ApplicationListener.java
 C:\Users\rajha\OpenideProjects\40\oris_1sem\src\main\java\model\Appointment.java
 C:\Users\rajha\OpenideProjects\40\oris_1sem\src\main\java\dao\UserDao.java
@@ -12,6 +13,7 @@ C:\Users\rajha\OpenideProjects\40\oris_1sem\src\main\java\servlet\AuthProcessSer
 C:\Users\rajha\OpenideProjects\40\oris_1sem\src\main\java\servlet\DoctorsServlet.java
 C:\Users\rajha\OpenideProjects\40\oris_1sem\src\main\java\util\SecurityUtil.java
 C:\Users\rajha\OpenideProjects\40\oris_1sem\src\main\java\listener\SessionListener.java
+C:\Users\rajha\OpenideProjects\40\oris_1sem\src\main\java\servlet\TestAuthServlet.java
 C:\Users\rajha\OpenideProjects\40\oris_1sem\src\main\java\servlet\AccountServlet.java
 C:\Users\rajha\OpenideProjects\40\oris_1sem\src\main\java\filter\AuthorisationFilter.java
 C:\Users\rajha\OpenideProjects\40\oris_1sem\src\main\java\servlet\MainServlet.java

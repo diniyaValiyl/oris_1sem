@@ -7,62 +7,60 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Вход - Стоматологическая клиника "Вильдан"</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/theme.css">
 </head>
 <body>
     <%@ include file="header.jsp" %>
 
     <main>
-        <section class="section auth-section">
-            <div class="auth-container">
-                <h1>Вход в личный кабинет</h1>
+        <section class="section">
+            <div style="max-width: 400px; margin: 0 auto; padding: 2rem;">
+                <h1 style="text-align: center; margin-bottom: 2rem;">Вход в личный кабинет</h1>
 
+                <%-- Показываем ошибки --%>
                 <c:if test="${not empty param.error}">
-                    <div class="alert alert-error">
+                    <div style="background: #ffebee; color: #c62828; padding: 1rem; border-radius: 5px; margin-bottom: 1rem; border: 1px solid #ffcdd2;">
                         <c:choose>
                             <c:when test="${param.error == 'invalid'}">Неверный логин или пароль</c:when>
+                            <c:when test="${param.error == 'system'}">Ошибка системы. Попробуйте позже.</c:when>
                             <c:otherwise>Ошибка авторизации</c:otherwise>
                         </c:choose>
                     </div>
                 </c:if>
 
-                <c:if test="${not empty param.success}">
-                    <div class="alert alert-success">
-                        <c:choose>
-                            <c:when test="${param.success == 'registered'}">Регистрация успешно завершена! Теперь вы можете войти.</c:when>
-                        </c:choose>
-                    </div>
-                </c:if>
-
-                <form action="${pageContext.request.contextPath}/auth/process" method="post" class="auth-form">
-                    <input type="hidden" name="action" value="login">
-                    <input type="hidden" name="csrfToken" value="${sessionScope.csrfToken}">
-
-                    <div class="form-group">
-                        <label for="username">Логин:</label>
+                <%-- Форма входа с абсолютным путем --%>
+                <form action="${pageContext.request.contextPath}/auth/process" method="post" style="display: flex; flex-direction: column; gap: 1rem;">
+                    <div>
+                        <label for="username" style="display: block; margin-bottom: 0.5rem; font-weight: bold;">Логин:</label>
                         <input type="text" id="username" name="username" required
-                               placeholder="Введите ваш логин">
+                               style="width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 5px;"
+                               placeholder="Введите ваш логин" value="testuser">
                     </div>
 
-                    <div class="form-group">
-                        <label for="password">Пароль:</label>
+                    <div>
+                        <label for="password" style="display: block; margin-bottom: 0.5rem; font-weight: bold;">Пароль:</label>
                         <input type="password" id="password" name="password" required
-                               placeholder="Введите ваш пароль">
+                               style="width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 5px;"
+                               placeholder="Введите ваш пароль" value="test123">
                     </div>
 
-                    <button type="submit" class="btn-primary btn-full">Войти</button>
+                    <button type="submit"
+                            style="background: #2e7d32; color: white; padding: 0.75rem; border: none; border-radius: 5px; cursor: pointer; font-size: 1rem;">
+                        Войти
+                    </button>
                 </form>
 
-                <div class="auth-links">
-                    <p>Нет аккаунта? <a href="${pageContext.request.contextPath}/auth?page=register">Зарегистрироваться</a></p>
-                    <p><a href="${pageContext.request.contextPath}/index">← Вернуться на главную</a></p>
+                <div style="text-align: center; margin-top: 1.5rem;">
+                    <p>Нет аккаунта?
+                        <a href="${pageContext.request.contextPath}/register" style="color: #2e7d32;">Зарегистрироваться</a>
+                    </p>
+                    <p style="margin-top: 0.5rem;">
+                        <a href="${pageContext.request.contextPath}/index" style="color: #666;">← Вернуться на главную</a>
+                    </p>
                 </div>
             </div>
         </section>
     </main>
 
     <%@ include file="footer.jsp" %>
-
-    <script src="${pageContext.request.contextPath}/js/theme.js"></script>
 </body>
 </html>

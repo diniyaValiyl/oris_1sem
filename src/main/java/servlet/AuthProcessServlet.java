@@ -22,20 +22,33 @@ public class AuthProcessServlet extends HttpServlet {
         try {
             User user = userService.authenticateUser(username, password);
             if (user != null) {
+                // Создаем сессию
                 HttpSession session = request.getSession();
                 session.setAttribute("user", user);
-                response.sendRedirect("account");
+
+                // Устанавливаем таймаут сессии (30 минут)
+                session.setMaxInactiveInterval(30 * 60);
+
+                // Логируем успешный вход
+                System.out.println("✅ Пользователь " + username + " успешно авторизован");
+
+                // Редирект на страницу аккаунта
+                response.sendRedirect(request.getContextPath() + "/account");
             } else {
-                response.sendRedirect("auth?error=invalid");
+                System.out.println("❌ Неверные учетные данные для пользователя: " + username);
+                response.sendRedirect(request.getContextPath() + "/auth?error=invalid");
             }
         } catch (Exception e) {
-            response.sendRedirect("auth?error=" + e.getMessage());
+            e.printStackTrace();
+            System.out.println("❌ Ошибка при аутентификации: " + e.getMessage());
+            response.sendRedirect(request.getContextPath() + "/auth?error=system_error");
         }
     }
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.sendRedirect("auth");
+        // Перенаправляем GET запросы на страницу аутентификации
+        response.sendRedirect(request.getContextPath() + "/auth");
     }
 }

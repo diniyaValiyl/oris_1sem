@@ -36,7 +36,7 @@
                 <c:otherwise>
                     <div class="auth-buttons">
                         <a href="${pageContext.request.contextPath}/auth" class="btn-secondary">Войти</a>
-                        <a href="${pageContext.request.contextPath}/auth?page=register" class="btn-primary">Регистрация</a>
+                        <a href="${pageContext.request.contextPath}/register" class="btn-primary">Регистрация</a>
                     </div>
                 </c:otherwise>
             </c:choose>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Test Form</title>
+</head>
+<body>
+<h1>Test Authentication Form</h1>
+
+<h2>Test 1: Direct to auth/process</h2>
+<form action="auth/process" method="post">
+    <input type="text" name="username" value="testuser">
+    <input type="password" name="password" value="test123">
+    <button type="submit">Test Auth/Process</button>
+</form>
+
+<h2>Test 2: Full path to auth/process</h2>
+<form action="/dental-clinic/auth/process" method="post">
+    <input type="text" name="username" value="testuser">
+    <input type="password" name="password" value="test123">
+    <button type="submit">Test Full Path</button>
+</form>
+
+<h2>Test 3: Test servlet</h2>
+<form action="test-auth" method="post">
+    <input type="text" name="username" value="testuser">
+    <input type="password" name="password" value="test123">
+    <button type="submit">Test Servlet</button>
+</form>
+</body>
+</html>

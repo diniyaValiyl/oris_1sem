@@ -5,6 +5,7 @@ servlet\ScheduleServlet$TimeSlot.class
 config\ApplicationListener.class
 servlet\ReviewServlet.class
 servlet\DoctorDetailServlet.class
+servlet\TestAuthServlet.class
 util\SecurityUtil.class
 dao\DoctorDao.class
 service\UserService.class
@@ -37,6 +38,7 @@ filter\AuthorisationFilter.class
 servlet\AppointmentServlet.class
 dao\AppointmentDaoImpl.class
 servlet\MainServlet.class
+servlet\RegisterServlet.class
 servlet\ScheduleServlet$1.class
 servlet\AuthPageServlet.class
 util\HashUtil.class
