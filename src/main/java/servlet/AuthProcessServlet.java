@@ -30,17 +30,16 @@ public class AuthProcessServlet extends HttpServlet {
                 session.setMaxInactiveInterval(30 * 60);
 
                 // Логируем успешный вход
-                System.out.println("✅ Пользователь " + username + " успешно авторизован");
+                System.out.println("Пользователь " + username + " успешно авторизован");
 
                 // Редирект на страницу аккаунта
                 response.sendRedirect(request.getContextPath() + "/account");
             } else {
-                System.out.println("❌ Неверные учетные данные для пользователя: " + username);
+                System.out.println("Неверные учетные данные для пользователя: " + username);
                 response.sendRedirect(request.getContextPath() + "/auth?error=invalid");
             }
         } catch (Exception e) {
-            e.printStackTrace();
-            System.out.println("❌ Ошибка при аутентификации: " + e.getMessage());
+            System.out.println("Ошибка при аутентификации: " + e.getMessage());
             response.sendRedirect(request.getContextPath() + "/auth?error=system_error");
         }
     }

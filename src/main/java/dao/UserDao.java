@@ -7,4 +7,5 @@ public interface UserDao {
     void createUser(User user) throws SQLException;
     User findUserByUsername(String username) throws SQLException;
     User findUserById(Long id) throws SQLException;
+    boolean isUsernameExists(String username) throws SQLException; // Новый метод
 }

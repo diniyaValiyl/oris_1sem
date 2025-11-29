@@ -64,6 +64,24 @@ public class UserDaoImpl implements UserDao {
         return null;
     }
 
+    @Override
+    public boolean isUsernameExists(String username) throws SQLException {
+        String sql = "SELECT COUNT(*) FROM users WHERE username = ?";
+
+        try (Connection connection = DatabaseConfig.getConnection();
+             PreparedStatement statement = connection.prepareStatement(sql)) {
+
+            statement.setString(1, username);
+
+            try (ResultSet resultSet = statement.executeQuery()) {
+                if (resultSet.next()) {
+                    return resultSet.getInt(1) > 0;
+                }
+            }
+        }
+        return false;
+    }
+
     private User buildUserFromResultSet(ResultSet resultSet) throws SQLException {
         return User.builder()
                 .id(resultSet.getLong("id"))
@@ -76,6 +94,8 @@ public class UserDaoImpl implements UserDao {
                 .birthYear(resultSet.getInt("birth_year"))
                 .address(resultSet.getString("address"))
                 .role(resultSet.getString("role"))
+                .createdAt(resultSet.getTimestamp("created_at"))
+                .lastLogin(resultSet.getTimestamp("last_login"))
                 .build();
     }
 }
