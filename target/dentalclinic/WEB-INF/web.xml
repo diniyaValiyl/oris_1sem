@@ -9,9 +9,4 @@
         <welcome-file>index</welcome-file>
     </welcome-file-list>
 
-    <servlet-mapping>
-        <servlet-name>MainServlet</servlet-name>
-        <url-pattern>/index</url-pattern>
-    </servlet-mapping>
-
 </web-app>
